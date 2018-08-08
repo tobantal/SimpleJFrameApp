@@ -4,21 +4,45 @@ import javax.swing.*;
 class TestFrame extends JFrame {
 
     public TestFrame() {
-        setTitle( "Test Application" );
-        setSize( 200, 200 );
-        setBackground( Color.gray );
-        Panel topPanel = new Panel();
+        setTitle( "BoxLayout Application" );
+        JPanel topPanel = new JPanel();
         topPanel.setLayout( new BorderLayout() );
         getContentPane().add( topPanel );
 
-        // Create a label to look at
-        Label labelHello = new Label( "Hello World!" );
-        topPanel.add( labelHello, BorderLayout.NORTH );
+        // Create panels to display X- and Y-axis box layouts
+        JPanel yAxisPanel = createYAxisPanel();
+        topPanel.add( yAxisPanel, BorderLayout.CENTER );
+        JPanel xAxisPanel = createXAxisPanel();
+        topPanel.add( xAxisPanel, BorderLayout.SOUTH );
     }
 
+    public JPanel createYAxisPanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout( new BoxLayout( panel, BoxLayout.Y_AXIS ) );
+        panel.setBackground( Color.lightGray );
+
+        // Add some components to this panel
+        panel.add( new JButton( "Button 1" ) );
+        panel.add( new TextArea( "This is a text area" ) );
+        panel.add( new JCheckBox( "Checkbox 1" ) );
+        return panel;
+    }
+
+    public JPanel createXAxisPanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout( new BoxLayout( panel, BoxLayout.X_AXIS ) );
+        panel.setBackground( Color.gray );
+
+        // Add some components to this panel
+        panel.add( new JButton( "Button 1" ) );
+        panel.add( new TextArea( "This is a text area" ) );
+        panel.add( new JCheckBox( "Checkbox 1" ) );
+        return panel;
+    }
 
     public static void main( String args[] ) {
         TestFrame mainFrame = new TestFrame();
+        mainFrame.pack();
         mainFrame.setVisible( true );
     }
 }
