@@ -12,7 +12,6 @@ class TestFrame extends JFrame {
         setUp();
         createPages();
         addPages();
-        addPages();
     }
 
     private void setUp() {
@@ -26,7 +25,6 @@ class TestFrame extends JFrame {
     }
 
     private void createPages() {
-        createPages();
         createPage1();
         createPage2();
         createPage3();
