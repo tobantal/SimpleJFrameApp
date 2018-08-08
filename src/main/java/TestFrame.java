@@ -12,6 +12,7 @@ class TestFrame extends JFrame {
         // Create panels to display X- and Y-axis box layouts
         JPanel yAxisPanel = createYAxisPanel();
         topPanel.add( yAxisPanel, BorderLayout.CENTER );
+
         JPanel xAxisPanel = createXAxisPanel();
         topPanel.add( xAxisPanel, BorderLayout.SOUTH );
     }
@@ -19,25 +20,25 @@ class TestFrame extends JFrame {
     public JPanel createYAxisPanel() {
         JPanel panel = new JPanel();
         panel.setLayout( new BoxLayout( panel, BoxLayout.Y_AXIS ) );
-        panel.setBackground( Color.lightGray );
+        panel.setBackground( Color.blue );
 
-        // Add some components to this panel
-        panel.add( new JButton( "Button 1" ) );
-        panel.add( new TextArea( "This is a text area" ) );
-        panel.add( new JCheckBox( "Checkbox 1" ) );
+        addComponentsToPanel(panel);
         return panel;
     }
 
     public JPanel createXAxisPanel() {
         JPanel panel = new JPanel();
         panel.setLayout( new BoxLayout( panel, BoxLayout.X_AXIS ) );
-        panel.setBackground( Color.gray );
+        panel.setBackground( Color.green );
 
-        // Add some components to this panel
+        addComponentsToPanel(panel);
+        return panel;
+    }
+
+    private void addComponentsToPanel(JPanel panel) {
         panel.add( new JButton( "Button 1" ) );
         panel.add( new TextArea( "This is a text area" ) );
         panel.add( new JCheckBox( "Checkbox 1" ) );
-        return panel;
     }
 
     public static void main( String args[] ) {
